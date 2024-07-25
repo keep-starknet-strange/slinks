@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome Slinks Marketplace</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .slink-list {
+        display: grid;
+        gap: 20px;
+      }
+      .slink-card {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+        transition: transform 0.2s ease-in-out;
+      }
+      .slink-card:hover {
+        transform: translateY(-5px);
+      }
+      .slink-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .slink-description {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 10px;
+      }
+      .slink-link {
+        color: #007bff;
+        text-decoration: none;
+      }
+      .slink-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Awesome Slinks Marketplace</h1>
+      <div class="slink-list" id="slinkList"></div>
+    </div>
+
+    <script>
+      const slinks = [
+        {
+          title: "Avnu",
+          description: "Decentralized Exchange on Starknet",
+          tweetUrl: "https://x.com/avnu_fi/status/1816442462069502441",
+          appUrl: "https://app.avnu.fi",
+        },
+        {
+          title: "Ekubo",
+          description: "Concentrated Liquidity AMM on Starknet",
+          tweetUrl: "https://x.com/EkuboProtocol/status/1816154347547312261",
+          appUrl: "https://app.ekubo.org/",
+        },
+      ];
+
+      function createSlinkCard(slink) {
+        return `
+                <div class="slink-card">
+                    <div class="slink-title">${slink.title}</div>
+                    <div class="slink-description">${slink.description}</div>
+                    <a href="${slink.tweetUrl}" target="_blank" class="slink-link">View Slink Tweet</a>
+                    <br>
+                    <a href="${slink.appUrl}" target="_blank" class="slink-link">Official App</a>
+                </div>
+            `;
+      }
+
+      function renderSlinks() {
+        const slinkList = document.getElementById("slinkList");
+        slinks.forEach((slink) => {
+          slinkList.innerHTML += createSlinkCard(slink);
+        });
+      }
+
+      renderSlinks();
+    </script>
+  </body>
+</html>
