@@ -6,19 +6,13 @@
     <title>Awesome Slinks Marketplace</title>
 
     <!-- Twitter Card metadata -->
-    <meta name="twitter:card" content="player" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@YourTwitterHandle" />
     <meta name="twitter:title" content="Awesome Slinks Marketplace" />
     <meta
       name="twitter:description"
       content="Explore a curated list of Starknet Slinks"
     />
-    <meta
-      name="twitter:player"
-      content="https://slinks-marketplace.vercel.app/meta-slink-marketplace.html"
-    />
-    <meta name="twitter:player:width" content="600" />
-    <meta name="twitter:player:height" content="400" />
     <meta
       name="twitter:image"
       content="https://slinks-marketplace.vercel.app/preview-image.png"
@@ -38,12 +32,27 @@
       property="og:image"
       content="https://slinks-marketplace.vercel.app/preview-image.png"
     />
+
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
   </head>
   <body>
     <iframe
       src="https://slinks-marketplace.vercel.app/meta-slink-marketplace.html"
       width="100%"
-      height="400"
+      height="100%"
       frameborder="0"
     ></iframe>
   </body>
