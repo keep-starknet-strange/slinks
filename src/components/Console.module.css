@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.console {
+  width: 360px;
+  height: 560px;
+  background-color: #000;
+  color: #00e600; /* Reduced neon by 10% */
+  font-family: 'Press Start 2P', cursive;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #00e600;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.console::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle, #000033 3px, transparent 4px),
+    radial-gradient(circle, #000033 3px, transparent 4px) 30px 30px;
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  opacity: 0.1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.credit, .highScore {
+  font-size: 0.6em;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.title {
+  text-align: center;
+  font-size: 0.8em;
+  margin: 10px 0;
+  color: #e62ee6; /* Reduced neon by 10% */
+  animation: pulse 2s infinite;
+}
+
+.websiteGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  max-height: 400px; /* Adjust this value as needed */
+  padding-right: 10px; /* Add some padding for the scrollbar */
+}
+
+.websiteItem {
+  background-color: #000033;
+  border: 1px solid #00e600;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.websiteItem::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.3s;
+}
+
+.websiteItem:hover::after {
+  left: 100%;
+  top: 100%;
+}
+
+.websiteItem.selected {
+  border-color: #e62ee6;
+  box-shadow: 0 0 5px #e62ee6;
+}
+
+.websiteImage {
+  width: 90%; /* Reduced from 100% to add margin */
+  height: 90px; /* Reduced from 100px to add margin */
+  object-fit: contain;
+  background-color: #000022; /* Lighter background for images */
+  /* border: 1px solid #00e600; */
+  border-radius: 2px;
+  margin: 5px auto; /* Center the image and add vertical margin */
+  display: block; /* Ensure margin auto works */
+}
+
+.websiteTitle {
+  font-size: 0.5em;
+  text-align: center;
+  margin-top: 5px;
+  /* margin-left: 30px; */
+  color: #00e600;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.7em;
+  color: #e62ee6;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 1px #00e600; }
+  to { text-shadow: 0 0 4px #00e600; } /* Reduced glow intensity */
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.iframeContainer {
+  flex-grow: 1;
+  position: relative;
+  background-color: #000022;
+  border: 1px solid #00e600;
+  border-radius: 3px;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.closeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #000033;
+  color: #00e600;
+  border: 1px solid #00e600;
+  font-size: 12px;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 3px 6px;
+  border-radius: 2px;
+}
+
+.closeButton:hover {
+  background-color: #00e600;
+  color: #000033;
+}
+
+.websiteGrid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.websiteGrid::-webkit-scrollbar-track {
+  background: #000033;
+}
+
+.websiteGrid::-webkit-scrollbar-thumb {
+  background: #00e600;
+  border-radius: 4px;
+}
+
+.websiteGrid::-webkit-scrollbar-thumb:hover {
+  background: #00ff00;
+}
