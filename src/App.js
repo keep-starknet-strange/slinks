@@ -10,6 +10,7 @@ const websites = [
   { url: 'https://beta.strkfarm.xyz/slinks', title: 'StrkFarm', thumbnail: 'https://static-assets-8zct.onrender.com/strkfarm/fulllogo-color.svg' },
   { url: 'https://slink.raize.club/', title: 'Raize.Club', thumbnail: 'https://www.raize.club/assets/logos/raizelogo.svg' },
   { url: 'https://starkflip.starkarcade.com/', title: 'StarkArcade', thumbnail: 'https://pbs.twimg.com/profile_images/1771003396989898752/VZz3jZqu_400x400.jpg' },
+  { url: '  https://app.starknet.id', title: 'Starknet.id', thumbnail: 'https://app.starknet.id/visuals/StarknetIdLogo.svg' },
 ];
 
 function App() {  
