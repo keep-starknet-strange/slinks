@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.console {
+  width: 550px;
+  height: 550px;
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Press Start 2P', cursive;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: 8px solid #444;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  animation: none; 
+}
+
+/* Add a pseudo-element for a subtle metal texture */
+.console::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background: 
+    linear-gradient(45deg, #222 25%, transparent 25%),
+    linear-gradient(-45deg, #222 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #222 75%),
+    linear-gradient(-45deg, transparent 75%, #222 75%);
+  background-size: 4px 4px;
+  background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.console::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  animation: scanlines 1s linear infinite;
+}
+
+.console::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  animation: scanlines 1s linear infinite;
+  z-index: 1; 
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+}
+
+.credit, .highScore {
+  font-size: 0.6em;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.title {
+  text-align: center;
+  font-size: 0.9em;
+  margin: 10px 0;
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+  animation: pulse 2s infinite;
+}
+
+.websiteGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  overflow-y: auto;
+  max-height: calc(100% - 100px);
+  padding: 10px;
+  background: url('https://i.gifer.com/HGoU.gif');
+  background-size: cover;
+  border: 2px solid #444;
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.websiteItem {
+  background-color: rgba(0, 0, 51, 0.7);
+  border: 2px solid #444;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.websiteItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  border-color: #666;
+}
+
+.websiteItem.selected {
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.websiteItem::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.3s;
+}
+
+.websiteItem:hover::after {
+  left: 100%;
+  top: 100%;
+}
+
+.websiteImage {
+  width: 80%;
+  height: 80px;
+  object-fit: contain;
+  margin: 5px auto;
+}
+
+.websiteTitle {
+  font-size: 0.5em;
+  text-align: center;
+  margin-top: 5px;
+  color: #00e600;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.7em;
+  color: #ff00ff;
+  animation: blink 1.5s infinite;
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 1px #00e600; }
+  to { text-shadow: 0 0 4px #00e600; } /* Reduced glow intensity */
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.iframeContainer {
+  flex-grow: 1;
+  position: relative;
+  background-color: #000022;
+  border: 1px solid #00e600;
+  border-radius: 3px;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none; 
+}
+
+.websiteGrid,
+.iframeContainer {
+  position: relative;
+  z-index: 2; 
+}
+
+.closeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #000033;
+  color: #00e600;
+  border: 1px solid #00e600;
+  font-size: 12px;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 3px 6px;
+  border-radius: 2px;
+}
+
+.closeButton:hover {
+  background-color: #00e600;
+  color: #000033;
+}
+
+.websiteGrid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.websiteGrid::-webkit-scrollbar-track {
+  background: #000033;
+}
+
+.websiteGrid::-webkit-scrollbar-thumb {
+  background: #00e600;
+  border-radius: 4px;
+}
+
+.websiteGrid::-webkit-scrollbar-thumb:hover {
+  background: #00ff00;
+}
+
+.insertCoin {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1em;
+  color: #ffff00;
+  text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00;
+  animation: blink 1s infinite;
+  z-index: 10;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.95; }
+  10% { opacity: 0.9; }
+  15% { opacity: 0.95; }
+  20% { opacity: 0.98; }
+  25% { opacity: 0.95; }
+  30% { opacity: 0.9; }
+  35% { opacity: 0.95; }
+  40% { opacity: 0.98; }
+  45% { opacity: 0.95; }
+  50% { opacity: 0.97; }
+  55% { opacity: 0.95; }
+  60% { opacity: 0.9; }
+  65% { opacity: 0.95; }
+  70% { opacity: 0.98; }
+  75% { opacity: 0.95; }
+  80% { opacity: 0.9; }
+  85% { opacity: 0.95; }
+  90% { opacity: 0.98; }
+  95% { opacity: 0.95; }
+  100% { opacity: 0.97; }
+}
+
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+@keyframes noise {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  20% { transform: translate(-10%, 5%); }
+  30% { transform: translate(5%, -10%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-10%, 5%); }
+  60% { transform: translate(15%, 0); }
+  70% { transform: translate(0, 10%); }
+  80% { transform: translate(-15%, 0); }
+  90% { transform: translate(10%, 5%); }
+}
