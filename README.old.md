@@ -1,2 +1,0 @@
-# slinks
-Slinks Marketplace.
