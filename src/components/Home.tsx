@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
-import styles from './Home.module.css';
-import { websites } from '../resources/websites';
+import React, { Fragment, useState } from "react";
+import styles from "./Home.module.css";
+import { websites } from "../resources/websites";
 
 function Home() {
   const [activeIframe, setActiveIframe] = useState<null | string>(null);
@@ -9,8 +9,15 @@ function Home() {
     <div className={styles.console}>
       {activeIframe ? (
         <div className={styles.iframeContainer}>
-          <iframe className={styles.iframe} src={activeIframe} title="Active Website" />
-          <button className={styles.closeButton} onClick={() => setActiveIframe(null)}>
+          <iframe
+            className={styles.iframe}
+            src={activeIframe}
+            title="Active Website"
+          />
+          <button
+            className={styles.closeButton}
+            onClick={() => setActiveIframe(null)}
+          >
             X
           </button>
         </div>
@@ -18,7 +25,9 @@ function Home() {
         <Fragment>
           <div className={styles.header}>
             <div className={styles.headerTitle}>SLINKS</div>
-            <div className={styles.headerDescription}>Starknet Apps on your feed</div>
+            <div className={styles.headerDescription}>
+              Starknet Apps on your feed
+            </div>
           </div>
           <div className={styles.websiteGrid}>
             {websites.map((website, index) => (
@@ -29,9 +38,15 @@ function Home() {
                   setActiveIframe(website.url);
                 }}
               >
-                <img className={styles.websiteImage} src={website.thumbnail} alt={website.title} />
+                <img
+                  className={styles.websiteImage}
+                  src={website.thumbnail}
+                  alt={website.title}
+                />
                 <div className={styles.websiteTitle}>{website.title}</div>
-                <div className={styles.websiteDescription}>{website.description}</div>
+                <div className={styles.websiteDescription}>
+                  {website.description}
+                </div>
               </div>
             ))}
           </div>
