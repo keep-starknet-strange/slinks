@@ -1,32 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Console.module.css';
 
 const Grid = ({ websites }) => {
   const [activeIframe, setActiveIframe] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const gridRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (gridRef.current) {
-        const scrollPosition = gridRef.current.scrollTop;
-        const itemHeight = gridRef.current.children[0].offsetHeight;
-        const newSelectedIndex = Math.floor(scrollPosition / itemHeight);
-        setSelectedIndex(newSelectedIndex);
-      }
-    };
-
-    const gridElement = gridRef.current;
-    if (gridElement) {
-      gridElement.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (gridElement) {
-        gridElement.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, []);
 
   return (
     <div className={styles.console}>
@@ -43,8 +20,8 @@ const Grid = ({ websites }) => {
             <div className={styles.credit}>CREDIT 10</div>
             <div className={styles.highScore}>HI-SCORE 9999</div>
           </div>
-          <h1 className={styles.title}>SELECT YOUR BLINK</h1>
-          <div className={styles.websiteGrid} ref={gridRef}>
+          <h1 className={styles.title}>SELECT YOUR SLINK</h1>
+          <div className={styles.websiteGrid}>
             {websites.map((website, index) => (
               <div
                 key={index}
@@ -63,7 +40,7 @@ const Grid = ({ websites }) => {
               </div>
             ))}
           </div>
-          <div className={styles.footer}>PRESS START</div>
+          <div className={styles.insertCoin}>INSERT COIN</div>
         </>
       )}
     </div>
